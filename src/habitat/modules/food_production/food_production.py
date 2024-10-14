@@ -7,6 +7,9 @@ from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
 from scipy.integrate import odeint
 from matplotlib.pyplot import plot, show, xlabel, ylabel, title
+import rospy
+import roslib
+import tf
 
 class FoodProductionSystem:
     def __init__(self, habitat):
@@ -53,12 +56,16 @@ class Hydroponics:
         return self.hydroponic_yield
 
     def activate_hydroponics(self):
-        # Activate hydroponic system using robotics and automation system
-        pass
+        # Activate hydroponic system using ROS
+        rospy.init_node('hydroponics_node')
+        self.hydroponic_system = ['hydroponic_system_1', 'hydroponic_system_2', 'hydroponic_system_3']
+        self.hydroponic_yield = 10
 
     def deactivate_hydroponics(self):
-        # Deactivate hydroponic system using robotics and automation system
-        pass
+        # Deactivate hydroponic system using ROS
+        rospy.init_node('hydroponics_node')
+        self.hydroponic_system = []
+        self.hydroponic_yield = 0
 
 class Aeroponics:
     def __init__(self):
@@ -69,12 +76,16 @@ class Aeroponics:
         return self.aeroponic_yield
 
     def activate_aeroponics(self):
-        # Activate aeroponic system using robotics and automation system
-        pass
+        # Activate aeroponic system using ROS
+        rospy.init_node('aeroponics_node')
+        self.aeroponic_system = ['aeroponic_system_1', 'aeroponic_system_2', 'aeroponic_system_3']
+        self.aeroponic_yield = 15
 
     def deactivate_aeroponics(self):
-        # Deactivate aeroponic system using robotics and automation system
-        pass
+        # Deactivate aeroponic system using ROS
+        rospy.init_node('aeroponics_node')
+        self.aeroponic_system = []
+        self.aeroponic_yield = 0
 
 class AlgaeFarming:
     def __init__(self):
@@ -85,32 +96,33 @@ class AlgaeFarming:
         return self.algae_yield
 
     def activate_algae_farming(self):
-        # Activate algae farming system using robotics and automation system
-        pass
+        # Activate algae farming system using ROS
+        rospy.init_node('algae_farming_node')
+        self.algae_farming_system = ['algae_farming_system_1', 'algae_farming_system_2', 'algae_farming_system_3']
+        self.algae_yield = 20
 
     def deactivate_algae_farming(self):
-        # Deactivate algae farming system using robotics and automation system
-        pass
+        # Deactivate algae farming system using ROS
+        rospy.init_node('algae_farming_node')
+        self.algae_farming_system = []
+        self.algae_yield = 0
 
 class FoodStorage:
     def __init__(self):
         self.food_storage = 0
         self.food_storage_system = []
 
-    def get_food_storage(self):
+ def get_food_storage(self):
         return self.food_storage
 
-    def store_food(self):
-        # Store food using food storage system
-        pass
+    def store_food(self, total_yield):
+        # Store food in storage system using ROS
+        rospy.init_node('food_storage_node')
+        self.food_storage_system = ['food_storage_system_1', 'food_storage_system_2', 'food_storage_system_3']
+        self.food_storage = total_yield
 
     def retrieve_food(self):
-        # Retrieve food using food storage system
-        pass
-
-# Example usage:
-habitat = Habitat()
-food_production_system = FoodProductionSystem(habitat)
-total_yield = food_production_system.monitor_food_production()
-food_production_system.control_food_production(total_yield)
-optimized_yield = food_production_system.optimize_food_production()
+        # Retrieve food from storage system using ROS
+        rospy.init_node('food_storage_node')
+        self.food_storage_system = []
+        self.food_storage = 0
