@@ -1,0 +1,19 @@
+HabitatHub/
+│
+├── habitat/
+│   ├── __init__.py
+│   ├── life_support.py
+│   ├── power_generation.py
+│   ├── communication.py
+│   └── agent.py
+│
+├── tests/
+│   ├── test_life_support.py
+│   ├── test_power_generation.py
+│   ├── test_communication.py
+│   └── test_agent.py
+│
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── deploy.py
